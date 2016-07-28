@@ -1,0 +1,33 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<Model>
+  <DataType name="Product">
+    <Property name="matchType">com.bstek.dorado.sample.entity.Product</Property>
+    <PropertyDef name="id">
+      <Property name="dataType">long</Property>
+    </PropertyDef>
+    <PropertyDef name="categoryId">
+      <Property name="dataType">Long</Property>
+    </PropertyDef>
+    <PropertyDef name="productName">
+      <Property/>
+    </PropertyDef>
+    <PropertyDef name="quantityPerUnit">
+      <Property/>
+    </PropertyDef>
+    <PropertyDef name="unitPrice">
+      <Property name="dataType">float</Property>
+    </PropertyDef>
+    <PropertyDef name="unitsInStock">
+      <Property name="dataType">int</Property>
+    </PropertyDef>
+    <PropertyDef name="unitsOnOrder">
+      <Property name="dataType">int</Property>
+    </PropertyDef>
+    <PropertyDef name="reorderLevel">
+      <Property name="dataType">int</Property>
+    </PropertyDef>
+    <PropertyDef name="discontinued">
+      <Property name="dataType">boolean</Property>
+    </PropertyDef>
+  </DataType>
+</Model>

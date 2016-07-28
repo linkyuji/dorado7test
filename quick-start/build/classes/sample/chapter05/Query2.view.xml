@@ -1,0 +1,55 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<ViewConfig>
+  <Arguments/>
+  <Context/>
+  <Model/>
+  <View>
+    <DataSet id="dsProducts">
+      <Property name="dataType">[Product]</Property>
+      <Property name="dataProvider">simpleCRUD#query2</Property>
+      <Property name="pageSize">20</Property>
+    </DataSet>
+    <TextEditor id="editorProductName"/>
+    <TextEditor id="editorUnitsInStock"/>
+    <ToolBar>
+      <DataPilot>
+        <Property name="dataSet">dsProducts</Property>
+        <Property name="itemCodes">pages,+,-,x</Property>
+      </DataPilot>
+      <ToolBarButton>
+        <Property name="action">actionUpdate</Property>
+        <Property name="caption">保存</Property>
+      </ToolBarButton>
+      <ToolBarButton id="btnQuery">
+        <ClientEvent name="onClick">&#xD;
+	var dsProducts = view.id(&quot;dsProducts&quot;);&#xD;
+	var editorProductName = view.id(&quot;editorProductName&quot;);&#xD;
+	var editorUnitsInStock = view.id(&quot;editorUnitsInStock&quot;);&#xD;
+    // 获取编辑框中的值&#xD;
+	// 产品名称&#xD;
+    var productName = editorProductName.get(&quot;value&quot;);&#xD;
+    // 库存数量&#xD;
+    var unitsInStock = editorUnitsInStock.get(&quot;value&quot;);&#xD;
+    // 将输入的查询条件已JSON形式赋值给dataSet的parameter&#xD;
+    dsProducts.set(&quot;parameter&quot;, {&#xD;
+        productName: productName,&#xD;
+        unitsInStock: unitsInStock&#xD;
+    });&#xD;
+    // 查询&#xD;
+    dsProducts.flushAsync();</ClientEvent>
+        <Property name="caption">查询</Property>
+      </ToolBarButton>
+    </ToolBar>
+    <DataGrid>
+      <Property name="dataSet">dsProducts</Property>
+    </DataGrid>
+    <UpdateAction id="actionUpdate">
+      <Property name="dataResolver">simpleCRUD#saveAll</Property>
+      <Property name="executingMessage">正在保存</Property>
+      <Property name="successMessage">保存成功！</Property>
+      <UpdateItem>
+        <Property name="dataSet">dsProducts</Property>
+      </UpdateItem>
+    </UpdateAction>
+  </View>
+</ViewConfig>

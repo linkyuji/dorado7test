@@ -1,0 +1,86 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<ViewConfig>
+  <Arguments/>
+  <Context/>
+  <Model/>
+  <View>
+    <TextEditor id="editor1">
+      <ClientEvent name="onReady"> self.set(&quot;value&quot;, 0);</ClientEvent>
+      <Property name="mapping">
+        <Property name="mapValues">
+          <Collection>
+            <Entity>
+              <Property name="key">1</Property>
+              <Property name="value">男</Property>
+            </Entity>
+            <Entity>
+              <Property name="key">0</Property>
+              <Property name="value">女</Property>
+            </Entity>
+          </Collection>
+        </Property>
+      </Property>
+      <Property name="trigger">dropdown1</Property>
+    </TextEditor>
+    <AutoMappingDropDown id="dropdown1">
+      <Property name="useEmptyItem">false</Property>
+    </AutoMappingDropDown>
+    <TextEditor id="editor2">
+      <ClientEvent name="onReady"> self.set(&quot;value&quot;, 0);</ClientEvent>
+      <Property name="mapping">
+        <Property name="mapValues">
+          <Collection>
+            <Entity>
+              <Property name="key">1</Property>
+              <Property name="value">男</Property>
+            </Entity>
+            <Entity>
+              <Property name="key">0</Property>
+              <Property name="value">女</Property>
+            </Entity>
+          </Collection>
+        </Property>
+      </Property>
+      <Property name="trigger">dropdown2</Property>
+    </TextEditor>
+    <AutoMappingDropDown id="dropdown2">
+      <Property name="useEmptyItem">true</Property>
+    </AutoMappingDropDown>
+    <TextEditor id="editor3">
+      <ClientEvent name="onReady"> self.set(&quot;value&quot;, 0);</ClientEvent>
+      <Property name="mapping">
+        <Property name="mapValues">
+          <Collection>
+            <Entity>
+              <Property name="key">1</Property>
+              <Property name="value">男</Property>
+            </Entity>
+            <Entity>
+              <Property name="key">0</Property>
+              <Property name="value">女</Property>
+            </Entity>
+          </Collection>
+        </Property>
+      </Property>
+      <Property name="trigger">autoMappingDropDown1</Property>
+    </TextEditor>
+    <TextEditor id="editor4">
+      <ClientEvent name="onReady"> self.set(&quot;value&quot;, 0);</ClientEvent>
+      <Property name="mapping">
+        <Property name="mapValues">
+          <Collection>
+            <Entity>
+              <Property name="key">1</Property>
+              <Property name="value">男</Property>
+            </Entity>
+            <Entity>
+              <Property name="key">0</Property>
+              <Property name="value">女</Property>
+            </Entity>
+          </Collection>
+        </Property>
+      </Property>
+      <Property name="trigger">autoMappingDropDown2</Property>
+    </TextEditor>
+  </View>
+</ViewConfig>

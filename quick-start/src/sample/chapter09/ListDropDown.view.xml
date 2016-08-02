@@ -1,0 +1,55 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<ViewConfig>
+  <Arguments/>
+  <Context/>
+  <Model/>
+  <View>
+    <TextEditor>
+      <Property name="trigger">dropdown1</Property>
+    </TextEditor>
+    <ListDropDown id="dropdown1">
+      <Property name="items">1,2,3,4,5</Property>
+    </ListDropDown>
+    <TextEditor>
+      <ClientEvent name="onReady">self.set(&quot;mapping&quot;, [&#xD;
+    {&#xD;
+        key : 1,&#xD;
+        value : &quot;男&quot;&#xD;
+    },&#xD;
+    {&#xD;
+        key : 0,&#xD;
+        value : &quot;女&quot;&#xD;
+    }&#xD;
+]);</ClientEvent>
+      <Property name="trigger">dropdown2</Property>
+    </TextEditor>
+    <ListDropDown id="dropdown2">
+      <Property name="items">
+        <Collection>
+          <Entity>
+            <Property name="key">1</Property>
+            <Property name="lable">A</Property>
+          </Entity>
+          <Entity>
+            <Property name="key">2</Property>
+            <Property name="lable">B</Property>
+          </Entity>
+          <Entity>
+            <Property name="key">3</Property>
+            <Property name="lable">C</Property>
+          </Entity>
+          <Entity>
+            <Property name="key">4</Property>
+            <Property name="lable">D</Property>
+          </Entity>
+          <Entity>
+            <Property name="key">5</Property>
+            <Property name="lable">E</Property>
+          </Entity>
+        </Collection>
+      </Property>
+      <Property name="displayProperty">lable</Property>
+      <Property name="property">key</Property>
+    </ListDropDown>
+  </View>
+</ViewConfig>

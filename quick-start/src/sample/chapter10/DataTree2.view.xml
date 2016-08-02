@@ -1,0 +1,45 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<ViewConfig>
+  <Arguments/>
+  <Context/>
+  <Model>
+    <DataType name="Category">
+      <Property name="creationType">com.bstek.dorado.sample.entity.Category</Property>
+      <Property name="acceptUnknownProperty">true</Property>
+      <PropertyDef name="id">
+        <Property name="dataType">long</Property>
+      </PropertyDef>
+      <PropertyDef name="categoryName">
+        <Property></Property>
+      </PropertyDef>
+      <PropertyDef name="description">
+        <Property></Property>
+      </PropertyDef>
+      <Reference name="products">
+        <Property name="dataType">[Product]</Property>
+        <Property name="parameter">$${this.d}</Property>
+        <Property name="dataProvider">dataTree#getProductsByCategoryId</Property>
+      </Reference>
+    </DataType>
+  </Model>
+  <View>
+    <DataSet id="dsProducts">
+      <Property name="dataType">[Category]</Property>
+      <Property name="dataProvider">dataTree#getAll</Property>
+    </DataSet>
+    <DataTree>
+      <Property name="dataSet">dsProducts</Property>
+      <BindingConfigs>
+        <BindingConfig>
+          <Property name="labelProperty">categoryName</Property>
+          <Property name="name">categorys</Property>
+          <BindingConfig>
+            <Property name="labelProperty">productName</Property>
+            <Property name="name">products</Property>
+            <Property name="childrenProperty">products</Property>
+          </BindingConfig>
+        </BindingConfig>
+      </BindingConfigs>
+    </DataTree>
+  </View>
+</ViewConfig>

@@ -1,0 +1,26 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<ViewConfig>
+  <Arguments/>
+  <Context/>
+  <Model/>
+  <View>
+    <DataSet id="dsProducts">
+      <Property name="dataType">[Product]</Property>
+      <Property name="dataProvider">simpleCRUD#query1</Property>
+      <Property name="pageSize">20</Property>
+    </DataSet>
+    <TextEditor>
+      <Property name="trigger">dropdown1</Property>
+      <Property name="width">300</Property>
+    </TextEditor>
+    <DataSetDropDown id="dropdown1">
+      <Property name="dataSet">dsProducts</Property>
+      <Property name="displayProperty">productName</Property>
+      <Property name="property">productName</Property>
+      <Property name="width">300</Property>
+      <Property name="dynaFilter">true</Property>
+      <Property name="autoOpen">true</Property>
+      <Property name="filterOnTyping">true</Property>
+    </DataSetDropDown>
+  </View>
+</ViewConfig>

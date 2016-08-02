@@ -1,0 +1,152 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<ViewConfig>
+  <Arguments/>
+  <Context/>
+  <Model/>
+  <View>
+    <DataSet id="dsProducts">
+      <Property name="dataType">[Product]</Property>
+      <Property name="dataProvider">simpleCRUD#query2</Property>
+      <Property name="pageSize">20</Property>
+    </DataSet>
+    <AutoForm id="formCondition">
+      <Property name="createPrivateDataSet">true</Property>
+      <AutoFormElement id="productName">
+        <Property name="name">productName</Property>
+        <Property name="label">产品名称</Property>
+        <Editor/>
+      </AutoFormElement>
+      <AutoFormElement id="unitsInStock">
+        <Property name="name">unitsInStock</Property>
+        <Property name="label">库存(大于)</Property>
+        <Editor/>
+      </AutoFormElement>
+    </AutoForm>
+    <ToolBar>
+      <DataPilot>
+        <Property name="dataSet">dsProducts</Property>
+        <Property name="itemCodes">pages</Property>
+      </DataPilot>
+      <ToolBarButton>
+        <Property name="action">actionUpdate</Property>
+        <Property name="caption">保存</Property>
+        <Property name="icon">url(>skin>common/icons.gif) -140px -20px</Property>
+      </ToolBarButton>
+      <ToolBarButton id="btnQuery">
+        <ClientEvent name="onClick">    // 查询条件&#xD;
+    var entity = view.get(&quot;#formCondition.entity&quot;);&#xD;
+    // 传递参数并查询&#xD;
+    view.get(&quot;#dsProducts&quot;).set(&quot;parameter&quot;, entity).flushAsync();</ClientEvent>
+        <Property name="caption">查询</Property>
+        <Property name="icon">url(>skin>common/icons.gif) -20px -40px</Property>
+      </ToolBarButton>
+      <ToolBarButton id="btnModify">
+        <ClientEvent name="onClick">view.get(&quot;#dialogEdit&quot;).show();</ClientEvent>
+        <Property name="caption">编辑</Property>
+        <Property name="icon">url(>skin>common/icons.gif) -60px -20px</Property>
+      </ToolBarButton>
+      <ToolBarButton id="btnAdd">
+        <ClientEvent name="onClick">    view.get(&quot;#dsProducts.data&quot;).insert();&#xD;
+    view.get(&quot;#dialogEdit&quot;).show();</ClientEvent>
+        <Property name="caption">新增</Property>
+        <Property name="icon">url(>skin>common/icons.gif) -120px 0px</Property>
+      </ToolBarButton>
+      <ToolBarButton id="btnDelete">
+        <ClientEvent name="onClick">var entity = this.get(&quot;#dsProducts.data:#&quot;);&#xD;
+    if(entity){&#xD;
+        dorado.MessageBox.confirm(&quot;确认要删除记录吗？&quot;, function(){&#xD;
+            entity.remove();&#xD;
+        })&#xD;
+    }</ClientEvent>
+        <Property name="caption">删除</Property>
+        <Property name="icon">url(>skin>common/icons.gif) -140px 0px</Property>
+      </ToolBarButton>
+    </ToolBar>
+    <DataGrid>
+      <Property name="dataSet">dsProducts</Property>
+    </DataGrid>
+    <UpdateAction id="actionUpdate">
+      <Property name="dataResolver">simpleCRUD#saveAll</Property>
+      <Property name="executingMessage">正在保存</Property>
+      <Property name="successMessage">保存成功！</Property>
+      <UpdateItem>
+        <Property name="dataSet">dsProducts</Property>
+      </UpdateItem>
+    </UpdateAction>
+    <Dialog id="dialogEdit">
+      <Property name="caption">产品编辑</Property>
+      <Property name="width">600</Property>
+      <Property name="height">400</Property>
+      <Buttons>
+        <Button id="btnConfirm">
+          <ClientEvent name="onClick"> var dialog = view.get(&quot;#dialogEdit&quot;);&#xD;
+    view.get(&quot;#actionUpdate&quot;).execute(function(){&#xD;
+        dialog.hide();&#xD;
+    })</ClientEvent>
+          <Property name="caption">确定</Property>
+          <Property name="icon">url(>skin>common/icons.gif) -20px 0px</Property>
+        </Button>
+        <Button id="btnCancel">
+          <ClientEvent name="onClick"> view.get(&quot;#dsProducts.data:#&quot;).cancel();&#xD;
+    view.get(&quot;#dialogEdit&quot;).hide();&#xD;
+</ClientEvent>
+          <Property name="caption">取消</Property>
+          <Property name="icon">url(>skin>common/icons.gif) -220px -240px</Property>
+        </Button>
+      </Buttons>
+      <Children>
+        <AutoForm>
+          <Property name="dataSet">dsProducts</Property>
+          <Property name="autoCreateElements">true</Property>
+          <AutoFormElement>
+            <Property name="name">id</Property>
+            <Property name="property">id</Property>
+            <Property name="readOnly">true</Property>
+            <Editor/>
+          </AutoFormElement>
+          <AutoFormElement>
+            <Property name="name">categoryId</Property>
+            <Property name="property">categoryId</Property>
+            <Editor/>
+          </AutoFormElement>
+          <AutoFormElement>
+            <Property name="name">productName</Property>
+            <Property name="property">productName</Property>
+            <Editor/>
+          </AutoFormElement>
+          <AutoFormElement>
+            <Property name="name">quantityPerUnit</Property>
+            <Property name="property">quantityPerUnit</Property>
+            <Editor/>
+          </AutoFormElement>
+          <AutoFormElement>
+            <Property name="name">unitPrice</Property>
+            <Property name="property">unitPrice</Property>
+            <Editor/>
+          </AutoFormElement>
+          <AutoFormElement>
+            <Property name="name">unitsInStock</Property>
+            <Property name="property">unitsInStock</Property>
+            <Editor/>
+          </AutoFormElement>
+          <AutoFormElement>
+            <Property name="name">unitsOnOrder</Property>
+            <Property name="property">unitsOnOrder</Property>
+            <Editor/>
+          </AutoFormElement>
+          <AutoFormElement>
+            <Property name="name">reorderLevel</Property>
+            <Property name="property">reorderLevel</Property>
+            <Editor/>
+          </AutoFormElement>
+          <AutoFormElement>
+            <Property name="name">discontinued</Property>
+            <Property name="property">discontinued</Property>
+            <Editor/>
+          </AutoFormElement>
+        </AutoForm>
+      </Children>
+      <Tools/>
+    </Dialog>
+  </View>
+</ViewConfig>

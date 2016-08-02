@@ -9,10 +9,10 @@
       <Property name="dataType">Long</Property>
     </PropertyDef>
     <PropertyDef name="productName">
-      <Property/>
+      <Property></Property>
     </PropertyDef>
     <PropertyDef name="quantityPerUnit">
-      <Property/>
+      <Property></Property>
     </PropertyDef>
     <PropertyDef name="unitPrice">
       <Property name="dataType">float</Property>

@@ -1,0 +1,86 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<ViewConfig>
+  <Arguments/>
+  <Context/>
+  <Model/>
+  <View>
+    <AutoForm id="form1">
+      <Property name="cols">400,400,400</Property>
+      <Property name="labelWidth">130</Property>
+      <AutoFormElement id="AutoFormElement1">
+        <Property name="name">autoFormElment1</Property>
+        <Property name="label">属性1</Property>
+        <Property name="property">prop1</Property>
+        <Editor/>
+      </AutoFormElement>
+      <AutoFormElement id="AutoFormElement2">
+        <Property name="name">autoFormElment2</Property>
+        <Property name="label">属性2</Property>
+        <Editor/>
+      </AutoFormElement>
+      <AutoFormElement id="AutoFormElement3">
+        <Property name="name">autoFormElment3</Property>
+        <Property name="label">属性3</Property>
+        <Editor/>
+      </AutoFormElement>
+      <AutoFormElement id="AutoFormElement4" layoutConstraint="colSpan:3">
+        <Property name="name">autoFormElment4</Property>
+        <Property name="label">属性4</Property>
+        <Editor/>
+      </AutoFormElement>
+      <AutoFormElement id="AutoFormElement5" layoutConstraint="rowSpan:2">
+        <Property name="name">autoFormElment5</Property>
+        <Property name="label">属性5</Property>
+        <Editor>
+          <TextArea/>
+        </Editor>
+      </AutoFormElement>
+      <AutoFormElement id="AutoFormElement6">
+        <Property name="name">autoFormElment6</Property>
+        <Property name="label">属性6</Property>
+        <Editor/>
+      </AutoFormElement>
+      <AutoFormElement id="AutoFormElement7">
+        <Property name="name">autoFormElment7</Property>
+        <Property name="label">属性7</Property>
+        <Editor/>
+      </AutoFormElement>
+      <AutoFormElement id="AutoFormElement8">
+        <Property name="name">autoFormElment8</Property>
+        <Property name="label">属性8</Property>
+        <Editor>
+          <CheckBox/>
+        </Editor>
+      </AutoFormElement>
+      <AutoFormElement id="AutoFormElement9" layoutConstraint="rowSpan:3">
+        <Property name="name">autoFormElment9</Property>
+        <Property name="label">属性9</Property>
+        <Editor>
+          <RadioGroup layoutConstraint="colSpan:3">
+            <Property name="layout">grid</Property>
+            <RadioButton>
+              <Property name="text">选项一</Property>
+              <Property name="value">value1</Property>
+            </RadioButton>
+            <RadioButton>
+              <Property name="text">选项二</Property>
+              <Property name="value">value2</Property>
+            </RadioButton>
+            <RadioButton>
+              <Property name="text">选项三</Property>
+              <Property name="value">value3</Property>
+            </RadioButton>
+          </RadioGroup>
+        </Editor>
+      </AutoFormElement>
+    </AutoForm>
+    <Button id="btnGetValue1">
+      <ClientEvent name="onClick"> var value = view.get(&quot;#AutoFormElement1&quot;).get(&quot;value&quot;);&#xD;
+    dorado.MessageBox.alert(value);</ClientEvent>
+      <Property name="caption">获取属性(方式一)</Property>
+    </Button>
+    <Button id="btnGetValue2">
+      <Property name="caption">获取属性(方式二)</Property>
+    </Button>
+  </View>
+</ViewConfig>

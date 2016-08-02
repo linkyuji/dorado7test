@@ -1,0 +1,36 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<ViewConfig>
+  <Arguments/>
+  <Context/>
+  <Model>
+    <DataType name="ExampleCategory">
+      <Property name="creationType">com.bstek.dorado.sample.entity.Example</Property>
+      <PropertyDef name="id">
+        <Property name="dataType">long</Property>
+      </PropertyDef>
+      <PropertyDef name="label">
+        <Property/>
+      </PropertyDef>
+      <PropertyDef name="categories">
+        <Property name="dataType">[SELF]</Property>
+      </PropertyDef>
+    </DataType>
+  </Model>
+  <View>
+    <DataSet id="dsCategory">
+      <Property name="dataType">[ExampleCategory]</Property>
+      <Property name="dataProvider">recursiveTree#getCategories</Property>
+    </DataSet>
+    <DataTree>
+      <Property name="dataSet">dsCategory</Property>
+      <BindingConfigs>
+        <BindingConfig>
+          <Property name="labelProperty">label</Property>
+          <Property name="name">catagories</Property>
+          <Property name="recursive">true</Property>
+          <Property name="childrenProperty">categories</Property>
+        </BindingConfig>
+      </BindingConfigs>
+    </DataTree>
+  </View>
+</ViewConfig>

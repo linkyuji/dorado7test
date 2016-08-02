@@ -1,0 +1,25 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<ViewConfig>
+  <Arguments/>
+  <Context/>
+  <Model/>
+  <View>
+    <Dialog id="dialog1">
+      <Property name="width">600</Property>
+      <Property name="height">400</Property>
+      <Property name="modal">false</Property>
+      <Property name="caption">对话框范例</Property>
+      <Buttons/>
+      <Children/>
+      <Tools/>
+    </Dialog>
+    <Button id="btnShowDialog">
+      <ClientEvent name="onClick"> view.get(&quot;#dialog1&quot;).show();</ClientEvent>
+      <Property name="caption">打开对话框</Property>
+    </Button>
+    <Button>
+      <ClientEvent name="onClick">view.get(&quot;#dialog1&quot;).hide();</ClientEvent>
+      <Property name="caption">隐藏对话框</Property>
+    </Button>
+  </View>
+</ViewConfig>
